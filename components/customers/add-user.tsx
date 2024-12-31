@@ -36,7 +36,7 @@ export const AddUser: React.FC<AddUserProps> = (props) => {
     <div>
       <>
         <Button onPress={onOpen} color="primary">
-          Add User
+          Thêm khách hàng
         </Button>
         <Modal
           isOpen={isOpen}
