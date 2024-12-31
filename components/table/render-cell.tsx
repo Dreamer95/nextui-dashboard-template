@@ -14,17 +14,17 @@ export const RenderCell = ({ user, columnKey }: Props) => {
   // @ts-ignore
   const cellValue = user[columnKey];
   switch (columnKey) {
-    case "name":
-      return (
-        <User
-          avatarProps={{
-            src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
-          }}
-          name={cellValue}
-        >
-          {user.email}
-        </User>
-      );
+    // case "name":
+    //   return (
+    //     <User
+    //       avatarProps={{
+    //         src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+    //       }}
+    //       name={cellValue}
+    //     >
+    //       {user.email}
+    //     </User>
+    //   );
     case "role":
       return (
         <div>
