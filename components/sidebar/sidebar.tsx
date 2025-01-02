@@ -69,6 +69,20 @@ export const SidebarWrapper = () => {
               icon={<AccountsIcon />}
               href="accounts"
             />
+            <SidebarMenu title="Cài đặt">
+              <SidebarItem
+                isActive={pathname === '/tax'}
+                title="Thuế"
+                icon={<BalanceIcon />}
+                href="tax"
+              />
+              <SidebarItem
+                isActive={pathname === '/price'}
+                title="Giá bán"
+                icon={<BalanceIcon />}
+                href="price"
+              />
+            </SidebarMenu>
             {/*<SidebarMenu title="Main Menu">*/}
             {/*  <SidebarItem*/}
             {/*    isActive={pathname === "/payments"}*/}
