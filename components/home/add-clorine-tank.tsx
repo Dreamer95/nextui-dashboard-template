@@ -7,13 +7,31 @@ import {
   ModalFooter,
   ModalHeader,
   useDisclosure,
+  Select,
+  SelectItem,
 } from '@nextui-org/react';
 import React from 'react';
 import { useFormik } from 'formik';
 
 interface AddUserProps {
+  // eslint-disable-next-line no-unused-vars
   handleSubmitForm?: (data: Record<string, any>) => void;
 }
+
+const listWeight = [
+  {
+    key: 50,
+    label: '50kg',
+  },
+  {
+    key: 100,
+    label: '100kg',
+  },
+  {
+    key: 500,
+    label: '500kg',
+  },
+];
 
 export const AddClorineTank: React.FC<AddUserProps> = (props) => {
   const { handleSubmitForm } = props;
@@ -21,9 +39,10 @@ export const AddClorineTank: React.FC<AddUserProps> = (props) => {
   const formik = useFormik({
     initialValues: {
       code: '',
-      fullName: '',
-      address: '',
-      phoneNumber: '',
+      ownerId: '',
+      expiredDate: '',
+      manufacturer: '',
+      weight: '',
     },
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
@@ -61,30 +80,43 @@ export const AddClorineTank: React.FC<AddUserProps> = (props) => {
                       variant="bordered"
                       autoComplete="off"
                     />
-                    <Input
-                      name={'fullName'}
-                      label="Họ tên"
-                      value={formik.values.fullName}
-                      onChange={formik.handleChange}
+                    {/*<Input*/}
+                    {/*  name={'fullName'}*/}
+                    {/*  label="Họ tên"*/}
+                    {/*  value={formik.values.ownerId}*/}
+                    {/*  onChange={formik.handleChange}*/}
+                    {/*  variant="bordered"*/}
+                    {/*  autoComplete="off"*/}
+                    {/*/>*/}
+                    <Select
+                      // className="max-w-xs"
+                      name={'weight'}
+                      label="Trọng lượng"
+                      placeholder="Chọn"
+                      selectedKeys={[formik.values.weight]}
                       variant="bordered"
-                      autoComplete="off"
-                    />
-                    <Input
-                      name={'address'}
-                      label="Địa chỉ"
-                      value={formik.values.address}
                       onChange={formik.handleChange}
-                      variant="bordered"
-                      autoComplete="off"
-                    />
-                    <Input
-                      name={'phoneNumber'}
-                      label="Số điện thoại"
-                      value={formik.values.phoneNumber}
-                      onChange={formik.handleChange}
-                      variant="bordered"
-                      autoComplete="off"
-                    />
+                    >
+                      {listWeight.map((item) => (
+                        <SelectItem key={item.key}>{item.label}</SelectItem>
+                      ))}
+                    </Select>
+                    {/*<Input*/}
+                    {/*  name={'address'}*/}
+                    {/*  label="Địa chỉ"*/}
+                    {/*  value={formik.values.address}*/}
+                    {/*  onChange={formik.handleChange}*/}
+                    {/*  variant="bordered"*/}
+                    {/*  autoComplete="off"*/}
+                    {/*/>*/}
+                    {/*<Input*/}
+                    {/*  name={'phoneNumber'}*/}
+                    {/*  label="Số điện thoại"*/}
+                    {/*  value={formik.values.phoneNumber}*/}
+                    {/*  onChange={formik.handleChange}*/}
+                    {/*  variant="bordered"*/}
+                    {/*  autoComplete="off"*/}
+                    {/*/>*/}
                   </ModalBody>
 
                   <ModalFooter>
